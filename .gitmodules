@@ -1,0 +1,3 @@
+[submodule "onboarding"]
+	path = src/routes/onboarding
+	url = https://github.com/javi11292/closedbank-onboarding.git
