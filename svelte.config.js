@@ -6,8 +6,8 @@ export default {
 	kit: {
 		adapter: adapter(),
 		alias: {
-			lib: "src/lib",
-			"lib/*": "src/lib/*",
+			$onboarding: "src/routes/onboarding",
+			"$onboarding/*": "src/routes/onboarding/*",
 		},
 	},
 	preprocess: vitePreprocess(),
