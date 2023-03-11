@@ -5,7 +5,7 @@ const translations: Record<string, Record<string, string>> = {
 	es,
 };
 
-export const prerender = true;
+export const prerender = "auto";
 
 export const load = (({ params }) => {
 	const { language = "es" } = params;
