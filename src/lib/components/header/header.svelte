@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { classes } from "$lib/utils/classes";
 
-	let className: string = "";
+	let className: string | undefined = undefined;
 	export { className as class };
 </script>
 
