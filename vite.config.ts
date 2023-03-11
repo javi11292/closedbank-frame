@@ -3,6 +3,10 @@ import { execSync } from "node:child_process";
 import { defineConfig } from "vite";
 import { generateSW } from "workbox-build";
 
+const options = {
+	cacheName: execSync("git rev-parse HEAD").toString(),
+};
+
 export default defineConfig({
 	plugins: [
 		sveltekit(),
@@ -15,11 +19,14 @@ export default defineConfig({
 					skipWaiting: true,
 					runtimeCaching: [
 						{
+							urlPattern: ({ url }) => url.pathname.match(/^\/_app\/immutable/),
+							handler: "CacheFirst",
+							options,
+						},
+						{
 							urlPattern: /.*/,
-							handler: "NetworkFirst",
-							options: {
-								cacheName: execSync("git rev-parse HEAD").toString(),
-							},
+							handler: "CacheFirst",
+							options: { ...options, expiration: { maxAgeSeconds: 600 } },
 						},
 					],
 				});
