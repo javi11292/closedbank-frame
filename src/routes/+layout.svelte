@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { browser, dev } from "$app/environment";
 
-	import "./layout.css";
-	import font from "./material-icons.woff2";
+	import "$lib/assets/global.css";
+	import font from "$lib/assets/material-icons.woff2";
 
 	if (browser && !dev) {
 		navigator.serviceWorker.register("/service-worker.js");
