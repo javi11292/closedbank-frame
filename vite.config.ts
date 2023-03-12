@@ -3,16 +3,16 @@ import { execSync } from "node:child_process";
 import { defineConfig } from "vite";
 import { generateSW } from "workbox-build";
 
-const options = {
-	cacheName: execSync("git rev-parse HEAD").toString(),
-};
-
 export default defineConfig({
 	plugins: [
 		sveltekit(),
 		{
 			name: "workbox",
 			writeBundle: async () => {
+				const options = {
+					cacheName: execSync("git rev-parse HEAD").toString(),
+				};
+
 				await generateSW({
 					swDest: ".svelte-kit/output/client/service-worker.js",
 					sourcemap: false,

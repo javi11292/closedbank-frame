@@ -1,13 +1,16 @@
 <script lang="ts">
 	import { classes } from "$lib/utils/classes";
 
+	let className: string | undefined = undefined;
+	export { className as class };
 	export let label: string | undefined = undefined;
 	export let value: string | undefined = undefined;
 </script>
 
 <div
 	class={classes(
-		"group relative border-b border-solid border-neutral-400 py-1 transition-all duration-200 focus-within:border-lime-500"
+		"group relative border-b border-solid border-neutral-400 py-1 transition-all duration-200 focus-within:border-lime-500",
+		className
 	)}
 >
 	{#if label}

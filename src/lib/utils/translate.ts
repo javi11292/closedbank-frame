@@ -1,13 +1,13 @@
 import { derived, writable } from "svelte/store";
 
-export const translations = writable<Record<string, string>>({});
+export const translations = writable<Record<string, string | undefined>>({});
 
 const translate = ({
 	key,
 	translations,
 	props = {},
 }: {
-	translations: Record<string, string>;
+	translations: Record<string, string | undefined>;
 	key: string;
 	props?: Record<string, string>;
 }) => {
