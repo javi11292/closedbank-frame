@@ -19,7 +19,7 @@ const parseResponse = async (response: Response) => {
 	}
 };
 
-export const swr = <T = unknown, E = unknown>(url: string, data: T) => {
+export const swr = <T = unknown, E = unknown>(url: string, data?: T) => {
 	if (!browser) {
 		return writable<Store<T, E>>({ loading: true, data });
 	}

@@ -1,20 +1,18 @@
 import { derived, writable } from "svelte/store";
 
-export const translations = writable<Record<string, string | undefined>>({});
+type Translations = Record<string, string | undefined>;
+
+export const translations = writable<Translations>({});
 
 const translate = ({
 	key,
 	translations,
 	props = {},
 }: {
-	translations: Record<string, string | undefined>;
 	key: string;
+	translations: Translations;
 	props?: Record<string, string>;
 }) => {
-	if (!key) {
-		return "Missing key";
-	}
-
 	const text = translations[key];
 
 	if (!text) return key;
@@ -29,5 +27,9 @@ const translate = ({
 export const t = derived(
 	translations,
 	($translations) => (key: string, props?: Record<string, string>) =>
-		translate({ translations: $translations, key, props })
+		translate({
+			translations: $translations,
+			key,
+			props,
+		})
 );
