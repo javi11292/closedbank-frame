@@ -9,9 +9,13 @@ export const load = (async ({ params, fetch }) => {
 	const { language = "es" } = params;
 	const key = `translations-${language}`;
 
+	const version = fetch(`/api/language/${language}/version`)
+		.then((response) => response.text())
+		.catch(() => null);
+
 	let translations = await get(key);
 
-	if (!translations) {
+	if (!translations || (await version) !== translations.version) {
 		translations = await fetch(`/api/language/${language}`)
 			.then((response) => response.json())
 			.catch(() => ({}));

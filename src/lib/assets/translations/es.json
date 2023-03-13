@@ -1,5 +1,7 @@
 {
+	"version": "1",
 	"onboarding.subheader": "¡Bienvenido a Closedbank!",
 	"onboarding.subheader2": "Regístrate en menos de 5 minutos y disfruta de la vida al instante",
-	"onboarding.name.label": "Nombre"
+	"onboarding.name.label": "Nombre",
+	"onboarding.country.label": "País"
 }

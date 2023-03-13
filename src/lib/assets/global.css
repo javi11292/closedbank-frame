@@ -36,3 +36,13 @@ body {
 input {
 	all: unset;
 }
+
+@layer utilities {
+	.hover-opacity {
+		@apply relative transition-transform before:absolute before:inset-0 before:h-full before:w-full before:bg-current before:opacity-0 before:content-[''] hover:before:opacity-20 active:transition-none active:before:opacity-40;
+	}
+
+	.hover-effect {
+		@apply hover-opacity active:scale-90;
+	}
+}

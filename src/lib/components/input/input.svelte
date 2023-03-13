@@ -5,6 +5,9 @@
 	export { className as class };
 	export let label: string | undefined = undefined;
 	export let value: string | undefined = undefined;
+	export let readonly = false;
+	export let onFocus: (() => void) | undefined = undefined;
+	export let onBlur: (() => void) | undefined = undefined;
 </script>
 
 <div
@@ -26,6 +29,9 @@
 
 	<input
 		bind:value
+		on:focus={onFocus}
+		on:blur={onBlur}
 		class={classes("w-full [color-scheme:dark]", label && "pt-4")}
+		{readonly}
 	/>
 </div>
