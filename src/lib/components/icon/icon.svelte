@@ -3,8 +3,11 @@
 
 	let className: string | undefined = undefined;
 	export { className as class };
+	export let icon: string;
 </script>
 
-<div class={classes("rounded-lg bg-neutral-800 p-10", className)}>
-	<slot />
-</div>
+<img
+	class={classes("h-6 w-6", className)}
+	src={`/icons/${icon}.svg`}
+	alt={icon}
+/>

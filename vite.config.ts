@@ -1,5 +1,4 @@
 import { sveltekit } from "@sveltejs/kit/vite";
-import { execSync } from "node:child_process";
 import { defineConfig } from "vite";
 import { generateSW } from "workbox-build";
 
@@ -10,7 +9,7 @@ export default defineConfig({
 			name: "workbox",
 			writeBundle: async () => {
 				const options = {
-					cacheName: execSync("git rev-parse HEAD").toString(),
+					cacheName: "cache",
 				};
 
 				await generateSW({

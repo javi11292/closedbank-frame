@@ -25,7 +25,7 @@
 	on:click={onClick}
 	on:keyup={undefined}
 	class={classes(
-		"relative cursor-pointer overflow-hidden",
+		"relative cursor-pointer",
 		withoutScale ? "hover-opacity" : "hover-effect",
 		loading && "pointer-events-none",
 		icon ? "rounded-full p-2" : "py-2 px-4 font-bold",
@@ -36,14 +36,16 @@
 	)}
 	{href}
 >
-	<span
-		class={classes(
-			"transition-opacity duration-500",
-			loading ? "opacity-0" : "opacity-100"
-		)}
-	>
-		<slot />
-	</span>
+	<div class="overflow-hidden">
+		<span
+			class={classes(
+				"transition-opacity duration-500",
+				loading ? "opacity-0" : "opacity-100"
+			)}
+		>
+			<slot />
+		</span>
+	</div>
 
 	{#if loading}
 		<LoadingIcon
