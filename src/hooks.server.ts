@@ -5,8 +5,6 @@ import { minify } from "html-minifier";
 const minification_options = {
 	collapseBooleanAttributes: true,
 	collapseWhitespace: true,
-	conservativeCollapse: true,
-	decodeEntities: true,
 	minifyJS: true,
 	removeAttributeQuotes: true,
 	removeOptionalTags: true,
