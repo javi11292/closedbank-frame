@@ -9,6 +9,9 @@ export default {
 			$onboarding: "src/routes/onboarding",
 			"$onboarding/*": "src/routes/onboarding/*",
 		},
+		prerender: {
+			entries: ["*", "/"],
+		},
 	},
 	preprocess: vitePreprocess(),
 };

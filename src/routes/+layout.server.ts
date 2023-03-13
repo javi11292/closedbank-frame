@@ -3,8 +3,7 @@ import type { Writable } from "svelte/store";
 import { translations as $translations } from "$lib/utils/translate";
 import type { LayoutServerLoad } from "./$types";
 
-export const prerender = "auto";
-export const trailingSlash = "always";
+export const prerender = true;
 
 type WritableTranslations = typeof $translations;
 type Translations = WritableTranslations extends Writable<infer T> ? T : never;

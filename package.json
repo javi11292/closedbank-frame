@@ -7,6 +7,7 @@
 	"devDependencies": {
 		"@sveltejs/adapter-vercel": "^2.3.1",
 		"@sveltejs/kit": "^1.5.0",
+		"@types/html-minifier": "^4.0.2",
 		"@typescript-eslint/eslint-plugin": "^5.45.0",
 		"@typescript-eslint/parser": "^5.45.0",
 		"autoprefixer": "^10.4.13",
@@ -26,8 +27,9 @@
 		"vite": "^4.0.0",
 		"workbox-build": "^6.5.4"
 	},
-	"type": "module",
 	"dependencies": {
+		"html-minifier": "^4.0.0",
 		"idb-keyval": "^6.2.0"
-	}
+	},
+	"type": "module"
 }
