@@ -28,7 +28,7 @@
 		"relative cursor-pointer overflow-hidden",
 		withoutScale ? "hover-opacity" : "hover-effect",
 		loading && "pointer-events-none",
-		icon ? "material-icons rounded-full p-2" : "py-2 px-4 font-bold",
+		icon ? "rounded-full p-2" : "py-2 px-4 font-bold",
 		!withoutBorder && !icon && "rounded",
 		!disableUpperCase && !icon && "text-sm uppercase",
 		variantClass[variant],

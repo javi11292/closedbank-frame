@@ -19,6 +19,11 @@ export default defineConfig({
 					skipWaiting: true,
 					runtimeCaching: [
 						{
+							urlPattern: ({ url }) => url.pathname.match(/^\/api/),
+							handler: "NetworkFirst",
+							options,
+						},
+						{
 							urlPattern: ({ url }) => url.pathname.match(/^\/_app\/immutable/),
 							handler: "CacheFirst",
 							options,
