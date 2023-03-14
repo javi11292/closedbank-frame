@@ -6,8 +6,8 @@ export default {
 	kit: {
 		adapter: adapter(),
 		alias: {
-			$onboarding: "src/routes/onboarding",
-			"$onboarding/*": "src/routes/onboarding/*",
+			$onboarding: "src/routes/[[language]]/onboarding",
+			"$onboarding/*": "src/routes/[[language]]/onboarding/*",
 		},
 		prerender: {
 			entries: ["*", "/"],

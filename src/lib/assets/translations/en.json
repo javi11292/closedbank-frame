@@ -1,0 +1,12 @@
+{
+	"version": "1-en",
+	"onboarding.subheader": "Welcome to Closedbank!",
+	"onboarding.subheader2": "Register in less than 5 minutes and enjoy the life instantly",
+	"onboarding.name.label": "Name",
+	"onboarding.country.label": "Country",
+	"onboarding.documentType.label": "Document type",
+	"onboarding.documentNumber.label": "Document number",
+	"onboarding.phone.label": "Phone number",
+	"onboarding.email.label": "Email",
+	"onboarding.start": "Start"
+}
