@@ -6,5 +6,5 @@ const translations: Record<string, Record<string, string>> = { es };
 export const GET = (({ params }) => {
 	const { id = "es" } = params;
 
-	return new Response(translations[id].version);
+	return new Response(translations[id]?.version);
 }) satisfies RequestHandler;
