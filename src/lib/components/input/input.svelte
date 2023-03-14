@@ -1,19 +1,27 @@
 <script lang="ts">
+	import type { FocusEventHandler, MouseEventHandler } from "svelte/elements";
+
 	import { classes } from "$lib/utils/classes";
 
 	let className: string | undefined = undefined;
 	export { className as class };
+	export let inputClass: string | undefined = undefined;
 	export let label: string | undefined = undefined;
 	export let value: string | undefined = undefined;
+	export let disableFocusLabel = false;
 	export let readonly = false;
-	export let onFocus: (() => void) | undefined = undefined;
-	export let onBlur: (() => void) | undefined = undefined;
-	export let onClick: (() => void) | undefined = undefined;
+	export let onFocus: FocusEventHandler<HTMLInputElement> | undefined =
+		undefined;
+	export let onBlur: FocusEventHandler<HTMLInputElement> | undefined =
+		undefined;
+	export let onClick: MouseEventHandler<HTMLInputElement> | undefined =
+		undefined;
 </script>
 
 <div
 	class={classes(
-		"group grid border-b border-solid border-neutral-400 py-1 transition-all duration-200 focus-within:border-lime-500",
+		"grid border-b border-solid border-neutral-400 py-1 transition-all duration-200 focus-within:border-lime-500",
+		!disableFocusLabel && "group",
 		className
 	)}
 >
@@ -42,7 +50,8 @@
 		on:click={onClick}
 		class={classes(
 			"col-start-1 row-start-2 box-border w-full [color-scheme:dark]",
-			$$slots.icon && "pr-6"
+			$$slots.icon && "pr-6",
+			inputClass
 		)}
 		{readonly}
 	/>

@@ -1,4 +1,6 @@
 <script lang="ts">
+	import type { MouseEventHandler } from "svelte/elements";
+
 	import LoadingIcon from "$lib/components/loading-icon";
 	import { classes } from "$lib/utils/classes";
 
@@ -9,7 +11,8 @@
 	export let disableUpperCase = false;
 	export let variant: "contained" | "outlined" | "text" = "text";
 	export let href: string | undefined = undefined;
-	export let onClick: (() => void) | undefined = undefined;
+	export let onClick: MouseEventHandler<HTMLButtonElement> | undefined =
+		undefined;
 	export let withoutScale = false;
 	export let withoutBorder = false;
 

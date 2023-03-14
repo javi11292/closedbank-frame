@@ -1,9 +1,12 @@
 {
-	"version": "2",
+	"version": "3",
 	"onboarding.subheader": "¡Bienvenido a Closedbank!",
 	"onboarding.subheader2": "Regístrate en menos de 5 minutos y disfruta de la vida al instante",
 	"onboarding.name.label": "Nombre",
 	"onboarding.country.label": "País",
 	"onboarding.documentType.label": "Tipo de documento",
-	"onboarding.documentNumber.label": "Número de documento"
+	"onboarding.documentNumber.label": "Número de documento",
+	"onboarding.phone.label": "Número de móvil",
+	"onboarding.email.label": "Email",
+	"onboarding.start": "Comenzar"
 }

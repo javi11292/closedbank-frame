@@ -1,4 +1,6 @@
 <script lang="ts">
+	import type { MouseEventHandler } from "svelte/elements";
+
 	import Button from "$lib/components/button";
 	import Icon from "$lib/components/icon";
 	import Input from "$lib/components/input";
@@ -23,26 +25,26 @@
 		selected = option;
 	};
 
-	const onClick = () => {
+	const onClick: MouseEventHandler<HTMLInputElement> = ({ currentTarget }) => {
 		show = !show;
+		if (!show) {
+			currentTarget?.blur();
+		}
 	};
 </script>
 
 <Tooltip {show}>
 	<Input
 		readonly
-		class={classes("cursor-pointer", className)}
+		disableFocusLabel
+		class={className}
+		inputClass="cursor-pointer"
 		value={selected?.label}
 		{onBlur}
 		{onClick}
 		{label}
 	>
-		<Icon
-			slot="icon"
-			icon="dropdown"
-			let:class={iconClassName}
-			class={iconClassName}
-		/>
+		<Icon slot="icon" icon="dropdown" let:class={iconClass} class={iconClass} />
 	</Input>
 
 	<svelte:fragment slot="tooltip">
