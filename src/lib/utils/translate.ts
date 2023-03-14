@@ -1,16 +1,12 @@
-import { derived, writable } from "svelte/store";
+export type Translations = Record<string, string | undefined>;
 
-type Translations = Record<string, string | undefined>;
-
-export const translations = writable<Translations>({});
+let translations: Translations = {};
 
 const translate = ({
 	key,
-	translations,
 	props = {},
 }: {
 	key: string;
-	translations: Translations;
 	props?: Record<string, string>;
 }) => {
 	const text = translations[key];
@@ -24,12 +20,12 @@ const translate = ({
 	}, text);
 };
 
-export const t = derived(
-	translations,
-	($translations) => (key: string, props?: Record<string, string>) =>
-		translate({
-			translations: $translations,
-			key,
-			props,
-		})
-);
+export const setup = (value: Translations) => {
+	translations = value;
+};
+
+export const t = (key: string, props?: Record<string, string>) =>
+	translate({
+		key,
+		props,
+	});

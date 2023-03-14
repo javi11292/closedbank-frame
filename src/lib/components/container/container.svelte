@@ -7,7 +7,7 @@
 
 <div
 	class={classes(
-		"rounded-lg bg-neutral-800 px-20 py-10 shadow-xl shadow-black",
+		"rounded-lg bg-neutral-800 px-20 py-10 shadow-lg shadow-black",
 		className
 	)}
 >

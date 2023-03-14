@@ -2,7 +2,7 @@
 	import { browser, dev } from "$app/environment";
 
 	import "$lib/assets/global.css";
-	import { translations } from "$lib/utils/translate";
+	import { setup } from "$lib/utils/translate";
 	import type { LayoutData } from "./$types";
 
 	export let data: LayoutData;
@@ -12,7 +12,7 @@
 	}
 
 	if (data.translations) {
-		translations.set(data.translations);
+		setup(data.translations);
 	}
 </script>
 

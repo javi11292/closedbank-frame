@@ -35,7 +35,7 @@
 		{#if label}
 			<div
 				class={classes(
-					"absolute top-4 origin-left text-neutral-400 transition-all duration-200 group-focus-within:-translate-y-full group-focus-within:text-xs group-focus-within:text-lime-500",
+					"absolute top-4 origin-left whitespace-nowrap text-neutral-400 transition-all duration-200 group-focus-within:-translate-y-full group-focus-within:text-xs group-focus-within:text-lime-500",
 					value && "-translate-y-full text-xs"
 				)}
 			>
