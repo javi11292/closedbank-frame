@@ -1,3 +1,7 @@
+<script lang="ts" context="module">
+	export type Option = { label?: string; value: string };
+</script>
+
 <script lang="ts">
 	import type { MouseEventHandler } from "svelte/elements";
 
@@ -6,8 +10,6 @@
 	import Input from "$lib/components/input";
 	import Tooltip from "$lib/components/tooltip";
 	import { classes } from "$lib/utils/classes";
-
-	type Option = { label?: string; value?: string };
 
 	let className: string | undefined = undefined;
 	export { className as class };

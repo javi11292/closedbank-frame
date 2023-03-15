@@ -8,6 +8,7 @@
 	export { className as class };
 	export let loading = false;
 	export let icon = false;
+	export let disabled = false;
 	export let disableUpperCase = false;
 	export let variant: "contained" | "outlined" | "text" = "text";
 	export let href: string | undefined = undefined;
@@ -16,20 +17,24 @@
 	export let withoutScale = false;
 	export let withoutBorder = false;
 
-	const variantClass = {
-		contained: "bg-lime-500 text-black",
-		outlined: "text-lime-500 border border-solid border-current",
+	$: variantClass = {
+		contained: disabled ? "bg-neutral-700" : "bg-lime-500 text-black",
+		outlined: classes(
+			!disabled && "text-lime-500",
+			"border border-solid border-current"
+		),
 		text: null,
 	};
 </script>
 
 <svelte:element
 	this={href ? "a" : "button"}
-	on:click={onClick}
+	on:click={disabled ? undefined : onClick}
 	on:keyup={undefined}
 	class={classes(
-		"relative cursor-pointer",
-		withoutScale ? "hover-opacity" : "hover-effect",
+		"relative overflow-hidden",
+		disabled ? "cursor-not-allowed text-neutral-300" : "cursor-pointer",
+		!disabled && (withoutScale ? "hover-opacity" : "hover-effect"),
 		loading && "pointer-events-none",
 		icon ? "rounded-full p-2" : "py-2 px-4 font-bold",
 		!withoutBorder && !icon && "rounded",
@@ -37,7 +42,8 @@
 		variantClass[variant],
 		className
 	)}
-	{href}
+	href={disabled ? undefined : href}
+	{disabled}
 >
 	<div class="overflow-hidden">
 		<span
