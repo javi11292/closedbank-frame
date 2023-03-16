@@ -1,5 +1,5 @@
 {
-	"version": "1-es",
+	"version": "2-es",
 	"onboarding.subheader": "¡Bienvenido a Closedbank!",
 	"onboarding.subheader2": "Regístrate en menos de 5 minutos y disfruta de la vida al instante",
 	"onboarding.name.label": "Nombre",
@@ -8,5 +8,8 @@
 	"onboarding.documentNumber.label": "Número de documento",
 	"onboarding.phone.label": "Número de móvil",
 	"onboarding.email.label": "Email",
-	"onboarding.start": "Comenzar"
+	"onboarding.start": "Comenzar",
+
+	"onboarding.access-key.subheader": "Crea tu clave de acceso",
+	"onboarding.access-key.description": "Elige una clave de acceso con la que podrás iniciar sesión en el área clientes"
 }
