@@ -29,11 +29,11 @@
 
 <svelte:element
 	this={href ? "a" : "button"}
-	on:click={disabled ? undefined : onClick}
+	on:click={onClick}
 	on:keyup={undefined}
 	class={classes(
 		"relative overflow-hidden",
-		disabled ? "cursor-not-allowed text-neutral-300" : "cursor-pointer",
+		disabled ? "pointer-events-none text-neutral-300" : "cursor-pointer",
 		!disabled && (withoutScale ? "hover-opacity" : "hover-effect"),
 		loading && "pointer-events-none",
 		icon ? "rounded-full p-2" : "py-2 px-4 font-bold",
@@ -42,7 +42,7 @@
 		variantClass[variant],
 		className
 	)}
-	href={disabled ? undefined : href}
+	{href}
 	{disabled}
 >
 	<div class="overflow-hidden">
