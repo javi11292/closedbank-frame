@@ -10,7 +10,7 @@ import {
 import { layers, sequential } from "@tensorflow/tfjs-layers";
 
 const MUTATION_RATE = 0.2;
-const LEARN_RATE = 0.2;
+const LEARN_RATE = 0.1;
 
 enableProdMode();
 setBackend("cpu");
@@ -32,13 +32,17 @@ export class Brain {
 	}
 
 	predict = (values: number[]) => {
-		return new Promise<Float32Array | Int32Array | Uint8Array>((resolve) =>
+		return new Promise<Float32Array | Int32Array | Uint8Array>((resolve) => {
 			tidy(() => {
 				const result = this.model.predict(tensor2d([values])) as Tensor;
 
 				result.data().then(resolve);
-			})
-		);
+			});
+		});
+	};
+
+	dispose = () => {
+		this.model.dispose();
 	};
 
 	copy = (mutate = false) => {
@@ -49,7 +53,7 @@ export class Brain {
 			const weights = this.model.getWeights();
 
 			if (!mutate) {
-				model.setWeights(weights.map((weight) => weight.clone()));
+				model.setWeights(weights);
 			} else {
 				const mutated: Tensor[] = [];
 

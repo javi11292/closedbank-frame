@@ -49,6 +49,10 @@ export class Bird {
 		this.speed = JUMP;
 	};
 
+	dispose = () => {
+		this.brain?.dispose();
+	};
+
 	copy = (mutate = false) => {
 		return new Bird({
 			p: this.p,

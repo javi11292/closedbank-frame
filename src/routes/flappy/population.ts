@@ -69,15 +69,16 @@ export class Population {
 
 		if (!this.birds.size) {
 			const newBirds = new Set<Bird>();
+
 			for (let i = 0; i < SIZE; i++) {
 				if (i < SIZE * 0.05) {
 					newBirds.add(this.deaths[this.deaths.length - 1 - i].copy());
-				} else if (i < SIZE * 0.9) {
-					newBirds.add(select(this.deaths, this.fitness));
 				} else {
-					newBirds.add(new Bird({ p: this.p, population: this }));
+					newBirds.add(select(this.deaths, this.fitness));
 				}
 			}
+
+			this.deaths.forEach((bird) => bird.dispose());
 
 			this.reset(newBirds);
 		}
