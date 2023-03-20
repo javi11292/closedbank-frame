@@ -1,4 +1,5 @@
 import { sveltekit } from "@sveltejs/kit/vite";
+import { visualizer } from "rollup-plugin-visualizer";
 import { defineConfig } from "vite";
 import { generateSW } from "workbox-build";
 
@@ -31,6 +32,7 @@ export default defineConfig({
 				});
 			},
 		},
+		visualizer({ emitFile: true, template: "sunburst" }),
 	],
 	server: { port: 3000 },
 	preview: { port: 3000 },

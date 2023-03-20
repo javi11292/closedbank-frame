@@ -12,7 +12,7 @@
 	});
 
 	onDestroy(() => {
-		destroy();
+		destroy?.();
 	});
 </script>
 
