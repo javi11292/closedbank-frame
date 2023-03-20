@@ -9,8 +9,7 @@ import {
 } from "@tensorflow/tfjs-core";
 import { layers, sequential } from "@tensorflow/tfjs-layers";
 
-const MUTATION_RATE = 0.2;
-const LEARN_RATE = 0.1;
+const MUTATION_RATE = 0.1;
 
 enableProdMode();
 setBackend("cpu");
@@ -18,7 +17,9 @@ setBackend("cpu");
 const createModel = () => {
 	const model = sequential();
 
-	model.add(layers.dense({ inputShape: [5], units: 10, activation: "elu" }));
+	model.add(layers.dense({ inputShape: [5], units: 5, activation: "elu" }));
+	model.add(layers.dense({ units: 5, activation: "elu" }));
+
 	model.add(layers.dense({ units: 1, activation: "sigmoid" }));
 
 	return model;
@@ -63,7 +64,7 @@ export class Brain {
 					mutated[index] = tensor(
 						values.map((value) => {
 							if (Math.random() < MUTATION_RATE) {
-								return value + (Math.random() * 2 - 1) * LEARN_RATE;
+								return value + (Math.random() * 2 - 1);
 							} else {
 								return value;
 							}

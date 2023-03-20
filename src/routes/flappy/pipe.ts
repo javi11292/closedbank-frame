@@ -6,6 +6,7 @@ import { imageLoader } from "./utils";
 
 const GAP = 125;
 const SPEED = 0.2;
+const SPEED_MULTIPLIER = 0.001;
 
 const loader = imageLoader(imagePath);
 
@@ -54,7 +55,7 @@ export class Pipe {
 				imageHeight / 4,
 				this.p.height - imageHeight / 4
 			);
-			this.difficulty += this.p.deltaTime * 0.01;
+			this.difficulty += this.p.deltaTime * SPEED_MULTIPLIER;
 		} else {
 			this.position -= this.p.deltaTime * SPEED * this.difficulty;
 		}
