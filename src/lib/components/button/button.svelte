@@ -32,7 +32,7 @@
 	on:click={onClick}
 	on:keyup={undefined}
 	class={classes(
-		"relative overflow-hidden",
+		"relative overflow-hidden outline-none",
 		disabled ? "pointer-events-none text-neutral-300" : "cursor-pointer",
 		!disabled && (withoutScale ? "hover-opacity" : "hover-effect"),
 		loading && "pointer-events-none",
